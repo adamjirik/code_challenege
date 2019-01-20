@@ -2,6 +2,8 @@ from .errors import NoteUnavailableException
 
 
 def get_notes(amount):
+    if amount is None:
+        return []
     if amount < 0:
         raise ValueError("amount must be positive")
     remaining = amount
