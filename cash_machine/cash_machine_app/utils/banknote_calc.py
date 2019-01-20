@@ -12,6 +12,5 @@ def get_notes(amount):
                 notes.append(denom)
                 remaining -= denom
                 if remaining < min(denominations) and remaining != 0.0:
-                    # pass
                     raise NoteUnavailableException("that amount cannot be given with the available banknote denominations")
     return notes
