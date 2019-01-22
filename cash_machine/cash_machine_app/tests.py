@@ -1,8 +1,8 @@
 
 # Create your tests here.
 from django.test import TestCase
-from .models import AccountUser
-from .utils.banknote_calc import get_notes
+from .models import AccountUser, Bill
+from .utils.utils import get_notes
 from .utils.errors import NoteUnavailableException
 
 
@@ -28,3 +28,19 @@ class UserTestCase(TestCase):
 
     def tearDown(self):
         self.user1.delete()
+
+class BillsTestCase(TestCase):
+    def setUp(self):
+        self.d100 = Bill.objects.create(denomination=100)
+        self.d50 = Bill.objects.create(denomination=50)
+        self.d20 = Bill.objects.create(denomination=20)
+        self.d10 = Bill.objects.create(denomination=10)
+
+    def test_bills(self):
+        pass
+
+    def tearDown(self):
+        self.d100.delete()
+        self.d50.delete()
+        self.d20.delete()
+        self.d10.delete()
