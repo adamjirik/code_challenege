@@ -1,0 +1,7 @@
+<div>
+  <h1>Make a withdrawl</h1>
+  <label>Enter an amount:
+    <input #amount type="number"/>
+  </label>
+  <button (click)="makeWithdrawl(amount.value); amount.value=0">withdraw</button>
+</div>

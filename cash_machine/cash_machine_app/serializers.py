@@ -5,7 +5,7 @@ from rest_framework import serializers
 class AccountUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AccountUser
-        fields = ('username', 'first_name', 'last_name' 'email', 'account_number',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'account_number',)
 
 
 class BillSerializer(serializers.ModelSerializer):

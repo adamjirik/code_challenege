@@ -3,8 +3,8 @@ from rest_framework import routers
 from .views import *
 
 router = routers.DefaultRouter()
-router.register('user', AccountUserViewSet)
+router.register(r'users', AccountUserViewSet)
+router.register(r'transactions', TransactionViewSet)
 
-urlpatterns = [
-    path('transaction', TransactionViewSet.as_view({'post': 'create'}))
-]
+urlpatterns = router.urls
+#     path('transaction', TransactionViewSet.as_view({'post': 'create', 'get': 'retrieve'}))
