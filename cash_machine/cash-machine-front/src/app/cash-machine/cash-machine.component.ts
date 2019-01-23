@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CashMachineService} from "../cash-machine.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-cash-machine',
@@ -8,16 +9,25 @@ import {CashMachineService} from "../cash-machine.service";
 })
 export class CashMachineComponent implements OnInit {
 
-  constructor(private cashMachineService: CashMachineService) { }
+  bills: Array<any>;
+
+  constructor(private toastr: ToastrService,
+              private cashMachineService: CashMachineService) { }
 
   ngOnInit() {
   }
 
   makeWithdrawl(amount: number) {
     this.cashMachineService.withdraw(amount).then(res => {
+      this.toastr.success("Withdrawl success");
+      this.bills = [];
+      this.bills = JSON.parse(res['bill_list']);
+      console.log(this.bills);
       console.log(res);
+
     }, res => {
       console.log(res);
+      this.toastr.error("Withdrawl failed");
     })
   }
 

@@ -8,7 +8,7 @@ export class CashMachineService {
 
   private BASE_URL = '/api/transactions/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
   withdraw(amount: number) : Promise<any> {
     return this.http.post(this.BASE_URL, {'amount': amount}).toPromise()

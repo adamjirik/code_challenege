@@ -1,7 +1,19 @@
-<div>
-  <h1>Make a withdrawl</h1>
-  <label>Enter an amount:
-    <input #amount type="number"/>
-  </label>
-  <button (click)="makeWithdrawl(amount.value); amount.value=0">withdraw</button>
+<div id="page">
+<div class="container">
+  <div class="col-md-12">
+    <div class="form-control" style="alignment: center">
+      <h1>Make a withdrawl</h1>
+      <label>Enter an amount:
+        <input #amount type="number"/>
+      </label>
+      <button (click)="makeWithdrawl(amount.value); amount.value=0">withdraw</button>
+    </div>
+  </div>
+  <div class="col-md-12" *ngIf="this.bills">
+    <h2>Here are your bank notes:</h2>
+    <ul>
+      <li *ngFor="let bill of this.bills">${{ bill }}</li>
+    </ul>
+  </div>
+</div>
 </div>

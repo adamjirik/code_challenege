@@ -80,3 +80,4 @@ class Transaction(models.Model):
     date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(AccountUser, on_delete=models.CASCADE)
     bills = models.ManyToManyField(Bill)
+    bill_list = models.TextField(default='')

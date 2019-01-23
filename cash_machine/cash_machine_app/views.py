@@ -26,6 +26,8 @@ class TransactionViewSet(viewsets.ModelViewSet):
         user = AccountUser.objects.first()
         transaction = Transaction.objects.create(amount=amount, user=user)
         denominations = get_notes(amount)
+        bill_list = str(denominations)
+        transaction.bill_list = bill_list
         for denom in denominations:
             bill= Bill.objects.get(denomination=denom)
             transaction.bills.add(bill)
