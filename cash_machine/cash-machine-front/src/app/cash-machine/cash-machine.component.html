@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <div class="form-control" style="alignment: center">
       <h1>Make a withdrawl</h1>
-      <label>Enter an amount:
+      <label>Enter an amount (NOTE: this machine only dispenses bills with the denominations 10, 20, 50, and 100):
         <input #amount type="number"/>
       </label>
       <button (click)="makeWithdrawl(amount.value); amount.value=0">withdraw</button>
